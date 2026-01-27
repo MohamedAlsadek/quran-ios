@@ -54,7 +54,7 @@ let package = Package(
         // UI
         .package(url: "https://github.com/GenericDataSource/GenericDataSource", from: "3.1.3"),
         .package(url: "https://github.com/SvenTiigi/WhatsNewKit", from: "1.3.7"),
-        .package(url: "https://github.com/mohamede1945/Popover", from: "1.0.0"),
+        .package(url: "https://github.com/mohamede1945/Popover", from: "1.3.0"),
 
         // Testing
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.9.0"),

@@ -24,21 +24,11 @@ public struct NoorList<Content: View>: View {
 
     public var body: some View {
         configureList {
-            if #available(iOS 16.0, *) {
-                List {
-                    content
-                }
-                .scrollContentBackground(.hidden)
-                .background(Color(red: 10/255, green: 14/255, blue: 26/255))
-            } else {
-                List {
-                    content
-                }
-                .onAppear {
-                    // For iOS 15 and below, set UITableView appearance
-                    UITableView.appearance().backgroundColor = UIColor(red: 10/255, green: 14/255, blue: 26/255, alpha: 1.0)
-                }
+            List {
+                content
             }
+            .scrollContentBackground(.hidden)
+            .background(Color(red: 10/255, green: 14/255, blue: 26/255))
         }
         .listStyle(.insetGrouped)
     }

@@ -36,7 +36,7 @@ public struct DataUnavailableView: View {
             .offset(y: proxy.size.height / 4)
             .frame(maxWidth: .infinity)
         }
-        .background(Color.systemGroupedBackground)
+        .background(Color(red: 10/255, green: 14/255, blue: 26/255))
         .ignoresSafeArea()
     }
 

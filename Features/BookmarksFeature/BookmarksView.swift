@@ -70,7 +70,7 @@ private struct BookmarksViewUI: View {
     private func listItem(_ bookmark: PageBookmark) -> some View {
         let ayah = bookmark.page.firstVerse
         return NoorListItem(
-            image: .init(.bookmark, color: .red),
+            image: .init(.bookmark, color: .appAccent),
             title: "\(ayah.sura.localizedName()) \(sura: ayah.sura.arabicSuraName)",
             subtitle: .init(text: bookmark.creationDate.timeAgo(), location: .bottom),
             accessory: .text(NumberFormatter.shared.format(bookmark.page.pageNumber))

@@ -51,14 +51,14 @@ struct FontSizeStepper: View {
             .padding(.vertical, defaultSpacing)
             .background(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(Color.systemGray5)
+                    .fill(Color.appBackgroundTertiary)
             )
             .fixedSize(horizontal: false, vertical: true)
             .overlay(alignment: .bottom) {
                 HStack(spacing: dotsSpacing) {
                     ForEach(range.indices, id: \.self) { stepIndex in
                         Circle()
-                            .fill(stepIndex <= currentSizeIndex ? Color.black : .systemGray5)
+                            .fill(stepIndex <= currentSizeIndex ? Color.appAccent : .appBackgroundTertiary)
                             .frame(width: defaultSpacing, height: defaultSpacing)
                     }
                 }
@@ -104,7 +104,7 @@ struct FontSizeStepper: View {
             Text(l("menu.fontSizeLetter"))
                 .frame(maxWidth: .infinity)
         }
-        .tint(.label)
+        .tint(.appTextPrimary)
     }
 
     /// Shows the dots briefly, then hides them after `hideDelay` seconds.

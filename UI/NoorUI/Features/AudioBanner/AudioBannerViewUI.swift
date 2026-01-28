@@ -73,8 +73,8 @@ public struct AudioBannerViewUI: View {
         }
         .font(.title2)
         .background(
-            BannerBackground(color: .clear)
-                .shadow(color: .label.opacity(0.33), radius: 2)
+            BannerBackground(color: .appCardBackground)
+                .shadow(color: .appTextPrimary.opacity(0.15), radius: 3)
         )
     }
 }
@@ -115,7 +115,7 @@ private struct AudioPlaying: View {
                     .font(.footnote)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 6)
-                    .background(Color(.systemGray5))
+                    .background(Color.appBackgroundTertiary)
                     .clipShape(Capsule())
             }
             .padding(.leading, 4)

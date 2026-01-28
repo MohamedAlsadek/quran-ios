@@ -5,6 +5,7 @@
 //  Created by Afifi, Mohamed on 10/10/21.
 //
 
+import NoorUI
 import QuranKit
 import UIKit
 
@@ -30,6 +31,11 @@ class AdvancedAudioVersesViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
+        
+        // Apply app theme
+        tableView.backgroundColor = .appBackgroundPrimary
+        tableView.separatorColor = .appSeparator
+        tableView.tintColor = .appAccent
 
         if let selectedIndexPath = selectedIndexPath() {
             DispatchQueue.main.async {
@@ -49,14 +55,25 @@ class AdvancedAudioVersesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let verse = verseAtIndexPath(indexPath)
+        
+        // Apply app theme to cell
+        cell.backgroundColor = .appCardBackground
+        cell.textLabel?.textColor = .appTextPrimary
         cell.textLabel?.text = verse.localizedName
         cell.textLabel?.font = .preferredFont(forTextStyle: .body)
         cell.accessoryType = verse == selected ? .checkmark : .none
+        cell.tintColor = .appAccent // For checkmark
+        
         return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         suras[section].localizedName()
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = .appTextSecondary
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

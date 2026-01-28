@@ -23,29 +23,16 @@ public struct NoorList<Content: View>: View {
     // MARK: Public
 
     public var body: some View {
-        configureList {
-            List {
-                content
-            }
-            .scrollContentBackground(.hidden)
-            .background(Color(red: 10/255, green: 14/255, blue: 26/255))
+        List {
+            content
         }
-        .listStyle(.insetGrouped)
+        .scrollContentBackground(.hidden)
+        .background(Color(red: 10/255, green: 14/255, blue: 26/255))
+        .listStyle(listType == .app ? .insetGrouped : .plain)
     }
 
     // MARK: Private
 
     private let listType: ListType
     private let content: Content
-
-    @ViewBuilder
-    private func configureList(@ViewBuilder list: () -> some View) -> some View {
-        let list = list()
-        switch listType {
-        case .app:
-            list.listStyle(.insetGrouped)
-        case .searching:
-            list.listStyle(.plain)
-        }
-    }
 }

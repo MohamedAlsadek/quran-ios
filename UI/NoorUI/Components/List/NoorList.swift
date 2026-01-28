@@ -23,12 +23,25 @@ public struct NoorList<Content: View>: View {
     // MARK: Public
 
     public var body: some View {
-        List {
-            content
+        configuredList
+            .scrollContentBackground(.hidden)
+            .background(Color(red: 10/255, green: 14/255, blue: 26/255))
+    }
+    
+    @ViewBuilder
+    private var configuredList: some View {
+        switch listType {
+        case .app:
+            List {
+                content
+            }
+            .listStyle(.insetGrouped)
+        case .searching:
+            List {
+                content
+            }
+            .listStyle(.plain)
         }
-        .scrollContentBackground(.hidden)
-        .background(Color(red: 10/255, green: 14/255, blue: 26/255))
-        .listStyle(listType == .app ? .insetGrouped : .plain)
     }
 
     // MARK: Private

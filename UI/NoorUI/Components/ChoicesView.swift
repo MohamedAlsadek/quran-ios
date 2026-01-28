@@ -25,5 +25,18 @@ public struct ChoicesView<Item: Hashable>: View {
             }
         }
         .pickerStyle(SegmentedPickerStyle())
+        .onAppear {
+            // Apply app theme to UISegmentedControl
+            UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.appAccent
+            UISegmentedControl.appearance().setTitleTextAttributes(
+                [.foregroundColor: UIColor.white],
+                for: .selected
+            )
+            UISegmentedControl.appearance().setTitleTextAttributes(
+                [.foregroundColor: UIColor.appTextSecondary],
+                for: .normal
+            )
+            UISegmentedControl.appearance().backgroundColor = UIColor.appBackgroundTertiary
+        }
     }
 }

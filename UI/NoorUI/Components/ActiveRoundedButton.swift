@@ -36,7 +36,7 @@ private struct RoundedActiveBackground: View {
 
     var body: some View {
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-            .fill(Color.appIdentity.opacity(0.8))
-            .shadow(color: .systemGray3, radius: 2)
+            .fill(Color.appAccent)
+            .shadow(color: Color.appTextPrimary.opacity(0.2), radius: 2)
     }
 }

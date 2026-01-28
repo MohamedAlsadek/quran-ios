@@ -20,8 +20,8 @@ struct AdvancedAudioOptionsView: View {
         CocoaNavigationView {
             AdvancedAudioOptionsRootView(viewModel: viewModel)
         }
-        .standardAppearance(.opaqueBackground().backgroundColor(.systemBackground))
-        .scrollEdgeAppearance(.opaqueBackground().backgroundColor(.systemBackground))
+        .standardAppearance(.opaqueBackground().backgroundColor(.appBackgroundPrimary))
+        .scrollEdgeAppearance(.opaqueBackground().backgroundColor(.appBackgroundPrimary))
     }
 }
 
@@ -104,6 +104,8 @@ struct AdvancedAudioOptionsRootViewUI: View {
             RunsChoicesSection(title: lAndroid("play_each_verse"), runs: $verseRuns)
             RunsChoicesSection(title: lAndroid("play_verses_range"), runs: $listRuns)
         }
+        .scrollContentBackground(.hidden)
+        .background(Color.appBackgroundPrimary)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

@@ -13,6 +13,18 @@ import QuranKit
 import SwiftUI
 import UIx
 
+// MARK: - Helper Modifier for iOS 16+ scrollContentBackground
+
+private struct ScrollContentBackgroundModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 16.0, *) {
+            content.scrollContentBackground(.hidden)
+        } else {
+            content
+        }
+    }
+}
+
 struct AdvancedAudioOptionsView: View {
     @StateObject var viewModel: AdvancedAudioOptionsViewModel
 
@@ -104,7 +116,7 @@ struct AdvancedAudioOptionsRootViewUI: View {
             RunsChoicesSection(title: lAndroid("play_each_verse"), runs: $verseRuns)
             RunsChoicesSection(title: lAndroid("play_verses_range"), runs: $listRuns)
         }
-        .scrollContentBackground(.hidden)
+        .modifier(ScrollContentBackgroundModifier())
         .background(Color.appBackgroundPrimary)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

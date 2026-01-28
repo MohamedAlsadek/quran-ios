@@ -222,6 +222,7 @@ public struct NoorListItem: View {
         }
         .foregroundColor(.primary)
         .contentShape(Rectangle())
+        .listRowBackground(Color(red: 21/255, green: 27/255, blue: 46/255))
     }
 
     @ViewBuilder

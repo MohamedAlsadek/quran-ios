@@ -27,8 +27,9 @@ public struct NoorList<Content: View>: View {
             List {
                 content
             }
+            .scrollContentBackground(.hidden)
         }
-
+        .background(Color(red: 10/255, green: 14/255, blue: 26/255))
         .listStyle(.insetGrouped)
     }
 

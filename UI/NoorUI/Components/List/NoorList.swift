@@ -23,24 +23,23 @@ public struct NoorList<Content: View>: View {
     // MARK: Public
 
     public var body: some View {
-        configuredList
+        if #available(iOS 16.0, *) {
+            configureList {
+                List {
+                    content
+                }
+            }
             .scrollContentBackground(.hidden)
             .background(Color(red: 10/255, green: 14/255, blue: 26/255))
-    }
-    
-    @ViewBuilder
-    private var configuredList: some View {
-        switch listType {
-        case .app:
-            List {
-                content
-            }
             .listStyle(.insetGrouped)
-        case .searching:
-            List {
-                content
+        } else {
+            configureList {
+                List {
+                    content
+                }
             }
-            .listStyle(.plain)
+            .background(Color(red: 10/255, green: 14/255, blue: 26/255))
+            .listStyle(.insetGrouped)
         }
     }
 
@@ -48,4 +47,15 @@ public struct NoorList<Content: View>: View {
 
     private let listType: ListType
     private let content: Content
+
+    @ViewBuilder
+    private func configureList(@ViewBuilder list: () -> some View) -> some View {
+        let list = list()
+        switch listType {
+        case .app:
+            list.listStyle(.insetGrouped)
+        case .searching:
+            list.listStyle(.plain)
+        }
+    }
 }

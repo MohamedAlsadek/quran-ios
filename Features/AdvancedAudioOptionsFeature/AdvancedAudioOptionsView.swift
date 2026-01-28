@@ -87,6 +87,7 @@ struct AdvancedAudioOptionsRootViewUI: View {
                     StaticViewControllerRepresentable(viewController: recitersViewController())
                 }
             }
+            .listRowBackground(Color.appCardBackground)
 
             Section(header: Text(l("audio.adjust-end-verse-to-the-end.label"))) {
                 HStack {
@@ -99,6 +100,7 @@ struct AdvancedAudioOptionsRootViewUI: View {
                     ActiveRoundedButton(label: l("quran_alquran"), action: lastQuranAyahTapped)
                 }
             }
+            .listRowBackground(Color.appCardBackground)
 
             Section(header: Text(l("audio.playing-verses.label"))) {
                 VerseStaticView(label: lAndroid("from"), verse: fromVerse) {
@@ -112,6 +114,7 @@ struct AdvancedAudioOptionsRootViewUI: View {
                     }
                 }
             }
+            .listRowBackground(Color.appCardBackground)
 
             RunsChoicesSection(title: lAndroid("play_each_verse"), runs: $verseRuns)
             RunsChoicesSection(title: lAndroid("play_verses_range"), runs: $listRuns)
@@ -165,6 +168,7 @@ private struct RunsChoicesSection: View {
                 $0.localizedDescription
             }
         }
+        .listRowBackground(Color.appCardBackground)
     }
 }
 

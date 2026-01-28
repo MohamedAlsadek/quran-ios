@@ -27,6 +27,7 @@ public struct NoorList<Content: View>: View {
             configureList {
                 List {
                     content
+                        .listRowBackground(Color(red: 21/255, green: 27/255, blue: 46/255))
                 }
             }
             .scrollContentBackground(.hidden)
@@ -36,6 +37,7 @@ public struct NoorList<Content: View>: View {
             configureList {
                 List {
                     content
+                        .listRowBackground(Color(red: 21/255, green: 27/255, blue: 46/255))
                 }
             }
             .background(Color(red: 10/255, green: 14/255, blue: 26/255))
